@@ -1,0 +1,67 @@
+<section class="menu-section" id="menu">
+
+  <div class="menu-header">
+    <span class="eyebrow">— Meny</span>
+    <h2 class="section-title">VÅRE <mark class="highlight">RETTER</mark></h2>
+    <p class="section-desc">Autentiske smaker laget med ferske råvarer hver dag.</p>
+  </div>
+
+  <div class="menu-body">
+
+    <!-- LEFT: sticky image (desktop only) -->
+    <div class="menu-sticky">
+      <div class="sticky-image-wrap">
+        <div
+          *ngFor="let item of items; let i = index"
+          class="sticky-img"
+          [class.active]="activeIndex === i">
+          <img [src]="item.image" [alt]="item.name" loading="lazy">
+          <div class="img-overlay"></div>
+          <div class="img-badge">
+            <span class="badge-num">{{ item.id < 10 ? '0' + item.id : item.id }}</span>
+            <span class="badge-cat">{{ item.category }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: scrollable items -->
+    <div class="menu-scroll">
+      <div
+        *ngFor="let item of items; let i = index"
+        class="menu-item"
+        #itemEl
+        [attr.data-index]="i"
+        [style]="'--card-img: url(' + item.image + ')'">
+
+        <div class="item-top">
+          <span class="item-num">{{ item.id < 10 ? '0' + item.id : item.id }}</span>
+          <span class="item-cat">{{ item.category }}</span>
+        </div>
+
+        <h3 class="item-name">{{ item.nameNo }}</h3>
+        <p class="item-desc">{{ item.desc }}</p>
+
+        <div class="item-bottom">
+          <div class="item-price">
+            <span class="price-main">{{ item.price }}</span>
+            <span class="price-sub">/ {{ item.priceLabel }}</span>
+          </div>
+          <div class="item-allergens">
+            <span class="allergen-label">Allergener:</span>
+            <span>{{ item.allergens }}</span>
+          </div>
+        </div>
+
+        <div class="item-divider"></div>
+      </div>
+
+      <div class="menu-cta">
+        <a href="https://hongkongarendal.no" target="_blank" class="btn-full">
+          SE FULL MENY
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

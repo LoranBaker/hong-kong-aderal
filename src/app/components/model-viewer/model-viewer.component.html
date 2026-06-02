@@ -1,0 +1,16 @@
+<div class="viewer-wrap">
+  <canvas #canvas></canvas>
+
+  <!-- <div class="loader" *ngIf="loading">
+    <div class="spinner"></div>
+    <span class="loader-text">Laster...</span>
+  </div> -->
+
+  <div class="error" *ngIf="error">
+    Kunne ikke laste modell
+  </div>
+
+  <div class="hint" *ngIf="!loading && !error">
+    <span>Dra for å rotere · Scroll for å zoome</span>
+  </div>
+</div>

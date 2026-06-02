@@ -1,0 +1,22 @@
+<section class="testimonials-section">
+
+  <div class="t-header">
+    <span class="eyebrow">— Gjester</span>
+    <h2 class="section-title">HVA <mark class="highlight">GJESTENE</mark> SIER</h2>
+  </div>
+
+  <div class="t-grid">
+    <div class="t-card" *ngFor="let r of reviews">
+      <div class="stars">
+        <span *ngFor="let s of stars(r.stars)" class="star">★</span>
+      </div>
+      <h3 class="t-title">"{{ r.title }}"</h3>
+      <p class="t-text">{{ r.text }}</p>
+      <div class="t-author">
+        <span class="author-dot"></span>
+        {{ r.author }}
+      </div>
+    </div>
+  </div>
+
+</section>

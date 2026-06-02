@@ -1,0 +1,36 @@
+<nav [class.scrolled]="scrolled">
+  <div class="nav-inner">
+
+    <div class="nav-logo">
+      <span class="logo-text">Hong Kong</span>
+      <span class="logo-sub">Restaurant · Arendal</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#menu">Meny</a></li>
+      <li><a href="#buffet">Buffet</a></li>
+      <li><a href="#om-oss">Om oss</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+
+    <button class="nav-cta">
+      <span>37 09 88 98</span>
+    </button>
+
+    <button class="nav-burger" (click)="toggleMenu()" [class.open]="menuOpen" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <div class="nav-mobile" [class.open]="menuOpen">
+    <ul>
+      <li><a href="#menu" (click)="toggleMenu()">Meny</a></li>
+      <li><a href="#buffet" (click)="toggleMenu()">Buffet</a></li>
+      <li><a href="#om-oss" (click)="toggleMenu()">Om oss</a></li>
+      <li><a href="#kontakt" (click)="toggleMenu()">Kontakt</a></li>
+    </ul>
+    <a href="tel:37098898" class="mobile-cta">Ring oss · 37 09 88 98</a>
+  </div>
+</nav>

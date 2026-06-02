@@ -1,0 +1,88 @@
+<footer class="footer">
+
+  <!-- Top CTA band -->
+  <div class="footer-cta">
+    <div class="cta-left">
+      <span class="eyebrow">— Kom innom</span>
+      <h2 class="cta-title">KLAR FOR <mark class="highlight">GOD MAT?</mark></h2>
+    </div>
+    <div class="cta-right">
+      <a href="tel:37098898" class="btn-call">RING OG BESTILL</a>
+      <p class="cta-note">Ingen booking-avgift · Ring direkte</p>
+    </div>
+  </div>
+
+  <!-- Main footer grid -->
+  <div class="footer-main">
+
+    <div class="footer-brand">
+      <div class="brand-logo">
+        <span class="logo-mark">✕</span>
+        <span class="logo-text">HONG KONG</span>
+      </div>
+      <p class="brand-desc">
+        Autentisk asiatisk kjøkken i hjertet av Arendal.
+        Kinamat, thaimat og norsk mat siden 1990-tallet.
+      </p>
+      <div class="social-row">
+        <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="col-title">Navigasjon</h4>
+      <ul>
+        <li *ngFor="let l of links">
+          <a [href]="l.href">{{ l.label }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="col-title">Åpningstider</h4>
+      <ul class="hours-list">
+        <li><span>Man – Tor</span><span>11:30 – 21:00</span></li>
+        <li><span>Fredag</span><span>11:30 – 22:00</span></li>
+        <li><span>Lørdag</span><span>12:00 – 22:00</span></li>
+        <li class="sunday"><span>Søndag</span><span>13:00 – 21:00</span></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="col-title">Kontakt</h4>
+      <ul class="contact-list">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:37098898">37 09 88 98</a>
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Østre gate 1, Arendal</span>
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Søndagsbuffet 13 – 18</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>© {{ year }} Hong Kong Restaurant · Arendal</p>
+    <p class="credit">Redesignet med ❤ i Angular</p>
+  </div>
+
+</footer>

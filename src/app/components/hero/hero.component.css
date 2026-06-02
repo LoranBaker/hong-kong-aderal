@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Poppins:wght@300;400;500&display=swap');
+
+:host {
+  --green:  #09543d;
+  --pink:   #ffa9e9;
+  --cream:  #ffffd7;
+  --ink:    #332601;
+  --ease:   cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero {
+  min-height: calc(100vh - 24px);
+  margin: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--green);
+  background-image:
+    radial-gradient(ellipse 70% 60% at 20% 40%, #0a6347 0%, transparent 70%),
+    radial-gradient(ellipse 60% 70% at 85% 75%, #063d2e 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 65% 15%, #0b6e4f 0%, transparent 60%),
+    radial-gradient(ellipse 45% 55% at 5%  90%, #063d2e 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+  background-size: cover, cover, cover, cover, 300px 300px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 160px;
+  flex-shrink: 0;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-mark {
+  color: var(--pink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.logo-text {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+}
+
+.nav-btn {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--pink);
+  border: 2px solid var(--pink);
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px 0px #000;
+  padding: 1.1rem 2.4rem;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.nav-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+/* ── Body ── */
+.hero-body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: stretch;
+  padding: 0 160px 60px 160px;
+  gap: 2rem;
+}
+
+/* ── Left ── */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hero-title {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin: 0;
+}
+
+.highlight {
+  background: var(--pink);
+  color: var(--green);
+  font-style: normal;
+  padding: 0.02em 0.1em;
+  display: inline;
+}
+
+.hero-desc {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255, 255, 215, 0.7);
+  max-width: 42ch;
+  margin: 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-pink {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--pink);
+  border: 2px solid var(--pink);
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px 0px #000;
+  padding: 1.1rem 2.4rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.btn-pink:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.btn-outline {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--cream);
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px 0px #000;
+  padding: 1.1rem 2.4rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.btn-outline:hover { border-color: var(--cream); transform: translateY(-1px); }
+
+/* ── Right — video fills full column ── */
+.hero-right {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 0;
+  align-self: stretch;
+}
+
+/* ── Animations ── */
+.hero-title   { animation: fadeUp 0.6s 0.05s var(--ease) both; }
+.hero-desc    { animation: fadeUp 0.6s 0.20s var(--ease) both; }
+.hero-actions { animation: fadeUp 0.6s 0.32s var(--ease) both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .hero {
+    margin: 8px;
+    min-height: calc(100vh - 16px);
+  }
+
+  .nav {
+    padding: 20px 24px;
+  }
+
+  .hero-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding: 0 0 0 0;
+    gap: 0;
+    align-items: start;
+  }
+
+  .hero-left {
+    padding: 0 24px 2rem 24px;
+    gap: 1.5rem;
+    order: 2;
+  }
+
+  .hero-right {
+    display: block;
+    order: 1;
+    width: 100%;
+    height: 55vw;
+    min-height: 260px;
+    max-height: 380px;
+    padding: 0 24px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 11vw, 3.5rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-pink,
+  .btn-outline {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* ── Small mobile ── */
+@media (max-width: 480px) {
+  .nav { padding: 16px 20px; }
+  .nav-btn { padding: 0.7rem 1.2rem; font-size: 0.78rem; }
+  .hero-right { height: 60vw; padding: 0 16px; }
+  .hero-left { padding: 0 16px 2rem 16px; }
+}
