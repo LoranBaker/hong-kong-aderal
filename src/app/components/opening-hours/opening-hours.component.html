@@ -1,16 +1,16 @@
 <section class="hours-section">
-
   <div class="hours-inner">
 
-    <div class="hours-card">
+    <div class="hours-card" #hoursCard>
       <span class="eyebrow">— Åpningstider</span>
       <h2 class="card-title">NÅR VI <mark class="highlight">HOLDER</mark> ÅPENT</h2>
 
       <div class="hours-list">
         <div
           class="hours-row"
-          *ngFor="let h of hours"
-          [class.highlight-row]="h.highlight">
+          *ngFor="let h of hours; let i = index"
+          [class.highlight-row]="h.highlight"
+          [style.transition-delay]="(i * 0.07) + 's'">
           <span class="hours-day">{{ h.day }}</span>
           <span class="hours-divider"></span>
           <span class="hours-time" [class.buffet]="h.highlight">{{ h.time }}</span>
@@ -31,7 +31,7 @@
       <a href="tel:37098898" class="btn-call">BESTILL BORD</a>
     </div>
 
-    <div class="hours-image">
+    <div class="hours-image" #hoursImage>
       <img src="assets/restaurant-interior.jpg" alt="Restauranten innvendig">
       <div class="image-caption">
         <span>Hong Kong Restaurant · Arendal</span>

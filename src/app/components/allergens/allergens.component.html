@@ -1,6 +1,6 @@
 <section class="allergens-section">
 
-  <div class="a-header">
+  <div class="a-header" #header>
     <span class="eyebrow">— Informasjon</span>
     <h2 class="section-title">ALLERGEN<mark class="highlight">INFO</mark></h2>
     <p class="a-desc">
@@ -11,14 +11,18 @@
   </div>
 
   <div class="a-grid">
-    <div class="a-card" *ngFor="let a of allergens">
+    <div
+      class="a-card"
+      #cardEl
+      *ngFor="let a of allergens; let i = index"
+      [style.transition-delay]="(i * 0.04) + 's'">
       <span class="a-icon">{{ a.icon }}</span>
       <span class="a-name">{{ a.name }}</span>
       <span class="a-num">{{ a.num }}</span>
     </div>
   </div>
 
-  <div class="a-note">
+  <div class="a-note" #note>
     <div class="note-tag">⚠</div>
     <p>Informer alltid personalet om allergier før bestilling. Vi tilstreber å unngå krysskontaminering.</p>
   </div>

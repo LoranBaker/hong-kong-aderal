@@ -4,8 +4,7 @@ import {
   OnDestroy,
   ElementRef,
   ViewChildren,
-  QueryList,
-  HostListener
+  QueryList
 } from '@angular/core';
 
 export interface MenuItem {
@@ -36,7 +35,7 @@ export class MenuShowcaseComponent implements AfterViewInit, OnDestroy {
       id: 7,
       category: 'Spesialmeny',
       name: 'Six-course menu',
-      nameNo: 'Seks-retters meny',
+      nameNo: 'Seksretters meny',
       desc: 'Innbakte kongereker, innbakt kyllingfilet, innbakt fisk og sprøstekt svinekjøtt med søtsur saus. Pepperbiff og kylling i chop seuy. Serveres med ris.',
       allergens: '2, 5, 6, 7, 8, 9',
       price: 'NOK 460',
@@ -107,10 +106,12 @@ export class MenuShowcaseComponent implements AfterViewInit, OnDestroy {
           if (entry.isIntersecting) {
             const idx = Number((entry.target as HTMLElement).dataset['index']);
             this.activeIndex = idx;
+            // Add visible class for scroll reveal
+            entry.target.classList.add('visible');
           }
         });
       },
-      { threshold: 0.55 }
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
     );
 
     this.itemEls.forEach(el => this.observer.observe(el.nativeElement));

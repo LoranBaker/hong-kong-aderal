@@ -2,12 +2,14 @@
   <video
     #video
     [src]="src"
-    [poster]="poster"
     autoplay
     muted
     loop
     playsinline
-    preload="auto">
+    webkit-playsinline
+    preload="auto"
+    disablePictureInPicture
+    [poster]="poster">
   </video>
   <div class="overlay"></div>
 </div>

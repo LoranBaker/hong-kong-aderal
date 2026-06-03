@@ -264,6 +264,74 @@
   box-shadow: 5px 5px 0px 0px var(--ink);
 }
 
+
+/* ── Animations ── */
+
+/* Header fade up on load */
+.menu-header {
+  animation: fadeUp 0.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Each menu item starts hidden, revealed on scroll */
+.menu-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+
+.menu-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger each item slightly */
+.menu-item:nth-child(1) { transition-delay: 0.05s; }
+.menu-item:nth-child(2) { transition-delay: 0.1s;  }
+.menu-item:nth-child(3) { transition-delay: 0.15s; }
+.menu-item:nth-child(4) { transition-delay: 0.05s; }
+.menu-item:nth-child(5) { transition-delay: 0.1s;  }
+.menu-item:nth-child(6) { transition-delay: 0.15s; }
+
+/* Sticky image crossfade — already has transition, just making it smoother */
+.sticky-img {
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Badge slides up when image becomes active */
+.sticky-img .img-badge {
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform 0.5s 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.5s 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sticky-img.active .img-badge {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hover on desktop item — lift slightly */
+@media (min-width: 901px) {
+  .menu-item.visible:hover {
+    transform: translateX(6px);
+  }
+}
+
+/* CTA button entrance */
+.menu-cta {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.6s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ── Mobile ── */
 @media (max-width: 900px) {
   .menu-header {
@@ -302,6 +370,8 @@
     cursor: pointer;
   }
 
+  .menu-item { opacity: 0; transform: translateY(20px); }
+  .menu-item.visible { opacity: 1; transform: translateY(0); }
   .menu-item:hover { transform: none; }
 
   /* Background image per card using CSS custom property */

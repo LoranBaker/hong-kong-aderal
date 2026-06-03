@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-allergens',
   templateUrl: './allergens.component.html',
   styleUrls: ['./allergens.component.css']
 })
-export class AllergensComponent {
+export class AllergensComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('header') headerRef!: ElementRef;
+  @ViewChild('note') noteRef!: ElementRef;
+  @ViewChildren('cardEl') cardEls!: QueryList<ElementRef>;
+
+  private observer!: IntersectionObserver;
+
   allergens = [
     { num: 1,  name: 'Melk',      icon: '🥛' },
     { num: 2,  name: 'Egg',       icon: '🥚' },
@@ -22,4 +28,23 @@ export class AllergensComponent {
     { num: 13, name: 'Lupin',     icon: '🫛' },
     { num: 14, name: 'Sulfitt',   icon: '⚗️' },
   ];
+
+  ngAfterViewInit() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    if (this.headerRef) this.observer.observe(this.headerRef.nativeElement);
+    if (this.noteRef)   this.observer.observe(this.noteRef.nativeElement);
+    this.cardEls.forEach(el => this.observer.observe(el.nativeElement));
+  }
+
+  ngOnDestroy() { this.observer?.disconnect(); }
 }
