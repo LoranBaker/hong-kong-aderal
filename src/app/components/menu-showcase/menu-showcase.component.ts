@@ -44,7 +44,7 @@ export class MenuShowcaseComponent implements AfterViewInit, OnDestroy {
     },
     {
       id: 8,
-      category: 'Husrets klassiker',
+      category: 'Husets Klassiker',
       name: 'Lai Lai Special',
       nameNo: 'Lai Lai Spesial',
       desc: 'Biff, kylling og kongereker med black bean garlic sauce, hvitløk og forskjellige grønnsaker. Serveres med ris.',
